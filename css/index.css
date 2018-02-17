@@ -7337,11 +7337,23 @@ section {
   padding: 0px;
   margin: 0px; }
 
+ol li, ul li {
+  font-size: 18px;
+  margin: 0px 12px 0px 12px; }
+
+section.zeromq pre {
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px; }
+
+img {
+  border: 0px; }
+
 div.reveal {
   text-align: left; }
   div.reveal h1 {
     text-transform: none;
-    font-size: 1.8em;
+    font-size: 56px;
     font-weight: 100;
     text-align: left; }
 

@@ -20,18 +20,13 @@
 
 
       <section class="intro">
-        <h1>What is Messaging?</h1>
-        <div>Asking this question allows us to challenge how we think about computing and software architecture</div>
-      </section>
-
-
-      <section class="intro">
         <h1 class="title">Messaging at Scale</h1>
         <h1 class="title">With Open Source</h1>
         <hr>
         <div class="med">Open Source 101</div>
         <div class="med">Chad Cravens</div>
         <div class="med">Open Source Systems</div>
+        <a class="small" href="https://github.com/ossys/messaging-at-scale">https://github.com/ossys/messaging-at-scale</a>
       </section>
 
 
@@ -56,6 +51,270 @@
           <li class="fragment">Erlang</li>
           <li class="fragment">And Many Many Many More...</li>
         </ol>
+      </section>
+
+
+      <section class="intro">
+        <h1>What is Messaging?</h1>
+        <div>Asking this basic question allows us to challenge how we think about computing and software architecture</div>
+        <hr>
+        <div>A message is a discrete unit of communication intended by the source for consumption by some recipient or group of recipients.</div>
+        <img src="./img/sharing-info.png" style="width: 50%; height: 50%;" />
+      </section>
+
+
+      <section class="intro">
+        <h1>Why Share Information?</h1>
+        <ul>
+          <li class="fragment">Don't have time (Asynchronous)</li>
+          <li class="fragment">Can't do it (Interfaces / Contracts)</li>
+          <li class="fragment">Failure (Fault Tolerance)</li>
+        </ul>
+        <img  class="fragment" src="./img/self-surgery.png" />
+      </section>
+
+
+      <section class="intro">
+        <h1>What does it mean to "scale"?</h1>
+        <ul>
+          <li class="fragment">Adding more compute nodes</li>
+          <li class="fragment">Fault Tolerant</li>
+        </ul>
+        <h1 class="fragment">But what else?</h1>
+        <ul>
+          <li class="fragment">Scaling the team</li>
+          <li class="fragment">Separation of Concerns</li>
+          <li class="fragment">Scope of App</li>
+        </ul>
+      </section>
+
+
+      <section class="intro">
+        <h1>Typical Messaging Architecture</h1>
+        <img src="./img/messaging-architecture.png" />
+      </section>
+
+
+      <section class="intro">
+        <img src="./img/artemis-logo.jpg" />
+        <h1>Message Broker - ActiveMQ Artemis</h1>
+        <div><u>3 Separate 'ActiveMQ' Projects</u></div>
+        <ol>
+          <li>ActiveMQ 5</li>
+          <li>ActiveMQ Apollo (6)</li>
+          <li>ActiveMQ Artemis (Active)
+          <div>Donation of HornetQ to Apache</div>
+          <div>HornetQ Core Now </div></li>
+        </ol>
+      </section>
+
+
+      <section class="intro">
+        <h1 class="title">AMQ Artemis Architecture</h1>
+        <img src="./img/artemis-architecture.png" />
+      </section>
+
+
+      <section class="intro">
+        <h1 class="title">Scaling AMQ Artemis (Clustering, High Availability)</h1>
+        <img src="./img/amq-shared-fs.png" />
+        <img src="./img/amq-network-repl.png" />
+      </section>
+
+
+      <section class="intro">
+        <img src="./img/qpid-logo.png" height="30%" width="30%" />
+        <h1>Message Router - QPid Dispatch</h1>
+        <ul>
+          <li>AMQP support only</li>
+          <li>Uses "addresses" to connect consumers/producers</li>
+          <li>No persistence</li>
+          <li>Blocking (Both producer and consumer must be connected)</li>
+          <li>Can "pass through" messages to broker</li>
+        </ul>
+      </section>
+
+
+      <section class="intro">
+        <h1 class="title">QPid Dispatch Architecture</h1>
+        <img src="./img/interconnect-network.png" />
+      </section>
+
+
+      <section class="intro">
+        <h1>Combining with ActiveMQ Artemis</h1>
+        <img src="./img/interconnect-amq.png" height="50%" width="50%" />
+      </section>
+
+
+      <section class="intro">
+        <img src="./img/mqtt-logo.png" height="30%" width="30%" />
+        <h1>Lightweight Messaging - MQTT</h1>
+        <ul>
+          <li>Message Queuing Telemetry Transport</li>
+          <li>Designed for lightweight devices, "IoT"</li>
+          <li>Uses a pub/sub pattern</li>
+          <li>Very simple API</li>
+          <li>Defines 3 QoS (Quality of Service) Levels</li>
+          <li>0 - at most once (fire and forget)</li>
+          <li>1 - at least once (acknowledged delivery)</li>
+          <li>2 - exactly once (assured delivery)</li>
+        </ul>
+      </section>
+
+
+      <section class="intro">
+        <h1>Broker Implementations</h1>
+        <row>
+          <div class="col-md-6">
+            <h2>Mosquitto</h2>
+            <ul>
+              <li>Written in C</li>
+              <li>Lightweight and fast</li>
+              <li>Connect clients</li>
+              <li>Subscribe / Publish to Topics</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h2>Mosca</h2>
+            <ul>
+              <li>Written in Node.JS</li>
+              <li>Ability to use MQTT over WebSockets</li>
+              <li>Callback Handlers Greatly Enhances Functionality</li>
+              <li>Great for Real-Time Mobile / Web</li>
+            </ul>
+          </div>
+        </row>
+      </section>
+
+
+      <section class="intro">
+        <img src="./img/zeromq-logo.jpg" height="30%" width="30%" />
+        <h1>Messaging API - ZeroMQ</h1>
+        <ul>
+          <li>One of my personal favorites!</li>
+          <li>Not a broker, but rather an API</li>
+          <li>"Sockets on Steroids"</li>
+          <li>Extremely Low Latency: 2.8 million messages / sec on 10GbE</li>
+          <li>Binding support for dozens of languages (C/C++, NodeJS, R, Scala, Ruby, Java, etc...)</li>
+          <li>Great documentation!</li>
+        </ul>
+      </section>
+
+
+      <section class="zeromq">
+        <row>
+          <div class="col-md-6">
+            <pre>
+              <code class="language-clike">
+                void *socket = zmq_socket(context, ZMQ_REP);
+
+                zmq_bind(socket, "tcp://server:5555");
+                zmq_bind(socket, "ipc:///tmp/feeds/0");
+                zmq_bind(socket, "inproc://endpoint");
+              </code>
+            </pre>
+          </div>
+          <div class="col-md-6">
+            <h1>Connection Types</h1>
+            <ol>
+              <li>TCP Connection - Over Network</li>
+              <li>IPC - Inter-Process Communication</li>
+              <li>inproc - Thread Communication</li>
+            </ol>
+          </div>
+        </row>
+      </section>
+
+
+      <section class="zeromq">
+        <row>
+          <div class="col-md-12">
+            <h1>"Multi-Threading Magic" with ZeroMQ</h1>
+            <ol>
+              <li>Pieter Hintjens and Martin Sustrik discuss challenges of shared memory across threads</li>
+              <li>Race conditions, critical sections, semaphores, mutexes, lock management, context switches, etc...</li>
+              <li>What's the Secret? Share data as messages rather than shared state!</li>
+            </ol>
+          </div>
+        </row>
+      </section>
+
+
+      <section class="zeromq">
+        <row>
+          <div class="col-md-12">
+            <h1>Why I believe this is Powerful...</h1>
+            <ol>
+              <li>Current Dev Ops Capabilities Allow for Ephemeral Environments</li>
+              <li>Design threaded apps as "nanoservices", individual compute nodes</li>
+              <li>(Almost) seamlessly change between multi-threaded / multi-process / multi-node for distributed computing</li>
+            </ol>
+          </div>
+        </row>
+      </section>
+
+
+      <section class="zeromq">
+        <h1>ZeroMQ Patterns</h1>
+        <row>
+          <div class="col-md-4">
+            <h2>Request / Reply</h2>
+            <img src="./img/req-rep.png" />
+          </div>
+          <div class="col-md-4">
+            <h2>Publish / Subscribe</h2>
+            <img src="./img/pub-sub.png" />
+          </div>
+          <div class="col-md-4">
+            <h2>Push / Pull</h2>
+            <img src="./img/push-pull.png" />
+          </div>
+        </row>
+      </section>
+
+
+      <section class="intro">
+        <h1>Combine Patterns</h1>
+        <img src="./img/patterns.png" height="50%" width="50%" />
+      </section>
+
+
+      <section class="zeromq">
+        <row>
+          <div class="col-md-12">
+            <h1>Quick Note on Protocols with ZeroMQ</h1>
+            <ul>
+              <li>ZeroMQ does not support any specific protocol (binary)</li>
+              <li>Developers have the freedom to develop their own</li>
+              <li>Suggest looking into protobufs (Google), Thrift (Facebook), Avro (Hadoop / Spark)</li>
+            </ul>
+          </div>
+        </row>
+      </section>
+
+
+      <section class="intro">
+        <img src="./img/kafka-logo.png" height="50%" width="50%" />
+        <h1>Stream Processing - Kafka</h1>
+        <ul>
+          <li>Pub/Sub Fault-Tolerant Messaging System</li>
+          <li>Messages are Persisted to Disk</li>
+          <li>Built on top of Zookeeper Synchronization Service</li>
+          <li>Integrates well with Spark (SMACK Stack)</li>
+          <li>Very Efficient and Fast Persistence</li>
+          <li>Streaming Library</li>
+        </ul>
+      </section>
+
+
+      <section class="intro">
+        <h1 class="title">Thank you!</h1>
+        <hr>
+        <div class="med">Chad Cravens</div>
+        <div class="med">Open Source Systems</div>
+        <div class="med">chad.cravens@ossys.com</div>
+        <a class="small" href="https://github.com/ossys/messaging-at-scale">https://github.com/ossys/messaging-at-scale</a>
       </section>
 
 
